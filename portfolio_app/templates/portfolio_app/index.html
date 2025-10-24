@@ -1,0 +1,540 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BiJAYATA KUMARI | Software Developer</title>
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <link rel="icon" href="{% static 'portifoli_app/images/favicon.png' %}" type="image/png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+      background: rgba(0,0,0,0.2);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 100;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+      color: #e3e7e8;
+      font-style: italic;
+    
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00d9ff;
+    }
+
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      flex-direction: column;
+      text-align: center;
+      background: url("{% static 'portifoli_app/images/bg_img.jpg' %}") no-repeat center center/cover;
+      
+    }
+
+    .hero h1 {
+      font-size: 5rem;
+      background: linear-gradient(90deg, #000a0c, #0072ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-top: -400px;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      margin: 10px 0;
+      color: #0a8f5a;
+    }
+
+    .hero button {
+      background: #00c6ff;
+      color: #fff;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      margin-top: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .hero button:hover {
+      background: #0072ff;
+      transform: scale(1.05);
+    }
+
+    section {
+      padding: 80px 10%;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: #00d9ff;
+    }
+
+    .about, .education, .experience, .projects {
+      background: rgba(255,255,255,0.05);
+      padding: 40px;
+      border-radius: 5px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      margin-bottom: 40px;
+      
+    }
+    .projects h3{
+        color: #00d9ff;
+    }
+    .projects b{
+        color: #00d9ff;
+    }
+
+    .about img {
+      width: 150px;
+      border-radius: 30%;
+      margin-bottom: 20px;
+      border: 3px solid #00d9ff;
+    }
+
+    .about p {
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.08);
+      border-radius: 15px;
+      padding: 20px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact a {
+      display: inline-block;
+      margin: 10px;
+      color: #00d9ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.4);
+      font-size: 0.9rem;
+    }
+
+
+    /* EXPERIENCE SECTION DESIGN */
+.experience {
+  background: #f9fafc;
+  padding: 80px 10%;
+  font-family: 'Poppins', sans-serif;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+  position: relative;
+  color: #222;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #0a8f5a;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.timeline {
+  position: relative;
+  margin: 0 auto;
+  padding-left: 40px;
+  max-width: 900px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 18px;
+  width: 3px;
+  height: 100%;
+  background: #0a8f5a;
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -2px;
+  top: 10px;
+  width: 15px;
+  height: 15px;
+  background: #0a8f5a;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(10,143,90,0.1);
+}
+
+.timeline-content {
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px 30px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.timeline-content h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #0a8f5a;
+  margin-bottom: 6px;
+}
+
+.company {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.company span {
+  color: #777;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.timeline-content ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.timeline-content ul li {
+  position: relative;
+  margin-bottom: 8px;
+  padding-left: 22px;
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+.timeline-content ul li::before {
+  content: "•";
+  color: #0a8f5a;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+@media (max-width: 768px) {
+  .experience {
+    padding: 60px 20px;
+  }
+
+  .timeline::before {
+    left: 10px;
+  }
+
+  .timeline-dot {
+    left: -4px;
+  }
+
+  .timeline-content {
+    padding: 20px;
+  }
+}
+
+
+    @media(max-width: 768px) {
+      .hero h1 { font-size: 2.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Bijayata kumari</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Hi, I'm Bijayata kumari</h1>
+    <p>Software Developer | Python | Django | Node.js | JavaScript</p>
+    <button onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">Explore More</button>
+  </section>
+
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <center>
+    <img src="{% static 'portifoli_app/images/bijayatadp2.jpg' %}" alt="Profile">
+    </center>
+    <p>
+    I’m a dedicated Python Backend Developer with over 5.7 years of professional experience in designing, developing, and deploying high-performance web applications.
+My expertise lies in building RESTful APIs, scalable architectures, and seamless database integrations using Django, Django REST Framework, and SQL ORM queries.
+
+I’m passionate about writing clean, efficient, and maintainable code, optimizing server performance, and ensuring system reliability.
+Over the years, I’ve contributed to various projects involving automation, enterprise-level backend systems, and data-driven platforms that improve business productivity.
+
+I enjoy collaborating with cross-functional teams, solving complex backend challenges, and continuously exploring new technologies in the Python ecosystem to deliver innovative, secure, and scalable solutions.
+    </p>
+  </section>
+
+  <section id="education" class="education">
+    <h2>Education</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Bachelors in Computer Application - Computers</h3>
+        <p>Magadh university, India, 2012 - 2015</p>
+      </div>
+      <div class="card">
+        <h3>
+        Masters in Computer Application - Computers</h3>
+        <p>Nalanda Open University, India | 2016 - 2019</p>
+      </div>
+    </div>
+  </section>
+<section id="experience" class="experience">
+  <h2 class="section-title">Professional Experience</h2>
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h3>Senior Software Engineer</h3>
+        <p class="company">WorknestConnect Pvt. Ltd. — Doha, Qatar <span>(Jul 2025 – Present)</span></p>
+        <ul>
+          <li>Developed <strong>WorkNestConnect.com</strong>, a job portal similar to Naukri.com.</li>
+          <li>Designed and built both frontend and backend modules using <strong>Python (Django)</strong>, <strong>JavaScript</strong>, <strong>HTML/CSS</strong>, and <strong>PostgreSQL</strong>.</li>
+          <li>Focused on performance optimization and seamless database integration during a 4-month contract.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h3>Senior Software Engineer</h3>
+        <p class="company">Echelon Edge Pvt. Ltd. — Chandigarh, India <span>(Jan 2023 – Sep 2024)</span></p>
+        <ul>
+          <li>Developed and maintained backend modules using <strong>Django</strong> and <strong>REST APIs</strong>.</li>
+          <li>Optimized <strong>SQL queries</strong> and implemented <strong>Django ORM</strong> for efficient data handling.</li>
+          <li>Participated in <strong>Agile/Scrum</strong> events, sprint planning, and documentation.</li>
+          <li>Used <strong>Git</strong> and <strong>Docker</strong> for version control and deployment on Linux servers.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h3>Software Engineer</h3>
+        <p class="company">Slick Service — Ahmedabad, India <span>(May 2021 – Dec 2022)</span></p>
+        <ul>
+          <li>Designed project and task management web applications using <strong>Django</strong> and <strong>REST Framework</strong>.</li>
+          <li>Built interactive portals with <strong>HTML</strong>, <strong>CSS</strong>, and <strong>JavaScript</strong>.</li>
+          <li>Implemented <strong>Git</strong> workflows for collaboration and version control.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h3>Python Developer</h3>
+        <p class="company">Adsever Media — Noida, India <span>(Mar 2019 – May 2021)</span></p>
+        <ul>
+          <li>Developed <strong>RESTful APIs</strong> using <strong>Python (Django)</strong> and <strong>Node.js (Express)</strong>.</li>
+          <li>Built automation scripts and contributed to the <strong>Employee Management System (EMS)</strong>.</li>
+          <li>Performed regular code reviews and version control using <strong>Git</strong>.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+  <section id="projects" class="projects">
+    <h2>Projects</h2>
+    
+    <div class="cards">
+      <div class="card">
+        <h3>Project: WorkNestConnect — Job portal </h3>
+        <p>Connecting Job Seekers and Employers</p><br>
+        <b>Description:</b>
+           <p>Worked with WorkNestConnect, a Doha-based digital agency, to develop customized websites and applications for local businesses. Responsible for backend development, API integration, and database management. Delivered user-friendly and responsive digital solutions that supported client business goals and improved operational efficiency.</p><br>
+        <b>Key Contributions:</b>
+        <p>Developed and maintained backend modules using Python, Django, and REST APIs.
+        Wrote and optimized SQL queries and implemented Django ORM for efficient data management.
+        Participated in Scrum events, sprint planning, and prepared technical documentation.
+        Managed code versions with Git and deployed applications using Docker on Linux environments.
+        Collaborated with frontend developers to ensure seamless API integration and system reliability.</p><br>
+        <b>Technologies Used:</b>
+        Python, Django, Django REST Framework, MySQL/PostgreSQL, HTML/CSS/JavaScript, Docker, Git, Linux, REST APIs
+      </div>
+      <div class="card">
+        <h3>Project: WallPlanet (e-commerce platform)</h3>
+        <b>Role:</b> <p>Create API and api integration in html page</p>
+        <b>Description:</b><br><p>
+        Developed and maintained backend systems for OpinionsDeal.com, an online platform that connects users with paid surveys to earn rewards. Implemented APIs for survey management, user authentication, and reward processing. Optimized database queries and ensured data security and compliance with privacy regulations.
+        <b>Key Contributions:</b><br><p>
+        Developed and maintained backend modules using Python, Django, and REST APIs.
+        Wrote and optimized SQL queries and implemented Django ORM for efficient data management.
+        Implemented user authentication and authorization mechanisms.
+        Ensured data security and compliance with privacy regulations.
+        Collaborated with frontend developers to integrate APIs and ensure seamless user experience.</p><br>
+        <b>Technologies used:</b> Python, Django, MySQL, HTML/CSS/JavaScript, Angular</p>
+      </div>
+      <div class="card">
+        <b>Project:</b><h3> Employee Management System (EMS)</h3>
+        <b>Role:</b><p> Full Stack / Backend Developer</p>
+        <b>Description:</b>
+        <p> a comprehensive Employee Management System designed to streamline internal operations and team management. The system efficiently handles client details, projects, tasks, and employee information through a unified interface.</p>
+        <b>Key modules include:</b>
+        <b>Client Management:</b> Add, update, and monitor client details and ongoing contracts. <br>
+        <b>Project Management:</b> Track multiple projects with deadlines, progress status, and assigned teams. <br>
+        <b>Task Management:</b> Create, assign, and monitor daily tasks for employees. <br>
+        <b>Employee Management:</b> Maintain employee profiles, roles, attendance, and performance reports. <br>
+        <b>Authentication & Roles:</b> Implemented secure login and role-based access for admin, manager, and employee users. <br>
+        <b>Key Contributions:</b>
+        <p>Designed and developed RESTful APIs for all CRUD operations.
+        Integrated dashboards for real-time status tracking of projects and employees.
+        Implemented data validation, pagination, and filtering for efficient performance.
+        Deployed the system on a cloud-based environment for internal use.</p>
+        <b>Technologies Used:</b><br>
+        Python, Django, Django REST Framework (DRF), HTML, CSS, JavaScript, Bootstrap, MySQL, Git</p>
+      </div>
+    </div><br>
+    <!-- 2 -->
+     <div class="cards">
+      <div class="card">
+        <h3>Project: OpinionsDeal.com</h3>
+        <h3>Role: API Development & Integration</h3>
+        <b>Description:</b>
+            <p>OpinionsDeal.com par kaam karte hue, maine platform ke liye robust backend APIs develop kiye aur unhe frontend HTML pages me integrate kiya. Yeh APIs surveys ko manage karte the, users ke responses ko track karte the, aur rewards system ko handle karte the. Is project me maine user authentication, data validation, aur real-time data processing par focus kiya.</p>
+        <b>Key Contributions:</b>
+        <p>Developed RESTful APIs for survey management and user interactions.
+        Integrated APIs into frontend HTML pages for seamless user experience.
+        Implemented data validation and error handling mechanisms.
+        Optimized database queries for efficient data retrieval.
+        Collaborated with frontend developers to ensure smooth API integration.</p>
+        <p>echnologies Used:
+            Python
+            Django
+            MySQL
+            HTML/CSS/JavaScript
+            RESTful APIs</p>
+      </div>
+      <div class="card">
+        <h3>Project: NMS (Network Management System)</h3>
+        <b>Role:</b> <h4>Developed and maintained backend modules using Python, Django, and REST APIs. </h4>
+        <b>Description:</b>
+        <p>Developed and maintained a Network Management System (NMS) to monitor, manage, and optimize network devices and services. The system included backend modules for device configuration, status monitoring, and reporting dashboards. Focused on building robust, scalable APIs and efficient database interactions to ensure smooth operations and real-time network insights.</p>
+        <b>Key Contributions:</b><p>
+        Developed and maintained backend modules using Python, Django, and REST APIs.
+        Wrote and optimized SQL queries and implemented Django ORM for efficient data management.
+        Participated in Scrum events, sprint planning, and prepared technical documentation for project modules.
+        Managed code versions with Git and deployed applications using Docker on Linux environments.
+        Collaborated with frontend and QA teams to ensure seamless integration and system reliability.</p>
+        <b>Technologies used:</b> Python, Django, Django REST Framework, MySQL/PostgreSQL, HTML/CSS/JavaScript, Docker, Git, Linux, REST APIs</p>
+      </div>
+        <div class="card">
+            <h3>Project: Company Portal — Responsive Personal Site</h3>
+            <b>Role:</b><h4> Frontend / Django Developer</h4>
+            <b>Description:</b><p>
+            Developed a responsive personal/company portal with modern UI/UX features, including smooth animations, interactive sections, and a fully functional contact form. Implemented live conversion data tracking to provide real-time analytics for user interactions. The portal is optimized for mobile and desktop devices, ensuring a seamless experience across all screen sizes.</p>
+            <b>Key Contributions:</b><p>
+            Designed and developed a responsive layout using HTML, CSS, and JavaScript.
+            Integrated live conversion tracking to monitor user interactions and form submissions in real-time.
+            Added modern animations and interactive UI components to enhance user engagement.
+            Implemented a fully functional contact form with backend handling for form submissions.
+            Ensured cross-browser compatibility and mobile responsiveness.</p>
+            <b>Technologies Used:</b><p>
+            HTML, CSS, JavaScript, Bootstrap, React / Angular (if used), REST APIs, Live Analytics Integration</p>
+        </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <p>Let’s build something amazing together!</p>
+    <a href="mailto:vijayatarai11@gmail.com">📧 Email</a>
+    <a href="www.linkedin.com/in/bijayata-kumari-415a17196">💼 LinkedIn</a>
+    <a href="">💻 GitHub</a>
+    <a href=""><p><div class="contact-item">
+  <i class="fas fa-mobile-alt"></i>
+  <span> 📞 +974 66905898</span>
+</div></p></a>
+  </section>
+</body>
+</html>
