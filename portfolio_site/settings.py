@@ -71,7 +71,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'portfolio_site.wsgi.application'
-web: gunicorn portfolio_app.wsgi:application
+# web: gunicorn portfolio_app.wsgi:application
 
 
 
